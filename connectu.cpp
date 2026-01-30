@@ -9,7 +9,9 @@
  * * ONLY uncomment saveData() after you have verified Lab 1 works!
  */
 
- /// test
+ /// test 
+
+ ///
 
 #include <iostream>
 #include <string>
@@ -52,15 +54,18 @@ public:
 
     // Task: Add a new post to the FRONT of the list (O(1))
     void addPost(int pid, int uid, string content, int likes, long time) {
-        // TODO: LAB 1
-
-
+        Post* newPost = new Post(pid, uid, content, likes, time); 
+        newPost->next = head; 
+        head = newPost; 
     }
 
     void printTimeline() {
         Post* current = head;
         if (!current) { cout << "  (No posts yet)" << endl; return; }
         
+        while(current != nullptr){
+            current = current->next;
+        }
         // Task: Traverse the linked list and print content
         // TODO: LAB 1
 
